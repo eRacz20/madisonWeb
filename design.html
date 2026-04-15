@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="nav">
+  <a href="index.html" class="logo">Madison Gordon</a>
+  <div>
+    <a href="index.html">Home</a>
+    <a href="design.html">Graphic Design</a>
+    <a href="photography.html">Photography</a>
+    <a href="video.html">Video</a>
+  </div>
+</header>
+
+<h2 class="title">Graphic Design</h2>
+
+<div class="grid">
+
+  <!-- ROW 1 -->
+  <div class="card">
+    <img src="Graphic Design/Gordon-Media-Mashup-Program-Mockup.jpg" onclick="openImage(this.src)">
+    <h3>Media Mashup Program</h3>
+    <p>A creative layout combining multiple visual styles into one cohesive design. It emphasizes hierarchy, color balance, and engaging composition.</p>
+  </div>
+
+  <div class="card">
+    <img src="Graphic Design/Mashup-Poster.jpg" onclick="openImage(this.src)">
+    <h3>Mashup Poster</h3>
+    <p>An experimental poster blending typography and imagery into a bold composition. It focuses on visual storytelling through layered design elements.</p>
+  </div>
+
+  <div class="card">
+    <img src="Graphic Design/Tshirt-resized.jpg" onclick="openImage(this.src)">
+    <h3>T-Shirt Design</h3>
+    <p>A wearable graphic designed with a strong visual identity in mind. The design balances simplicity and boldness for everyday appeal.</p>
+  </div>
+
+  <!-- ROW 2 -->
+  <div class="card">
+    <img src="Graphic Design/Gordon-Desktop-Surf-Ad.jpg" onclick="openImage(this.src)">
+    <h3>Surf Desktop Ad</h3>
+    <p>A desktop advertisement built to capture attention with strong imagery. The layout prioritizes clarity and effective messaging.</p>
+  </div>
+
+  <div class="card">
+    <img src="Graphic Design/Gordon-Iphone-Sunglasses-Ad.jpg" onclick="openImage(this.src)">
+    <h3>Sunglasses Mobile Ad</h3>
+    <p>A mobile-focused ad designed for quick engagement and readability. It uses contrast and spacing to highlight the product.</p>
+  </div>
+
+  <div class="card">
+    <img src="Graphic Design/Madison-Gordon-Ashley-Furniture-Phone-Hand-Meta-Ad.jpg" onclick="openImage(this.src)">
+    <h3>Furniture Meta Ad</h3>
+    <p>A social media advertisement tailored for digital platforms and conversions. Clean composition keeps the focus on the product and brand.</p>
+  </div>
+
+  <div class="card">
+    <img src="Graphic Design/Phone-Hand-Meta-Ad-2024.jpg" onclick="openImage(this.src)">
+    <h3>Mobile Meta Ad</h3>
+    <p>A modern advertisement optimized for mobile viewing and fast interaction. The design emphasizes clarity and visual impact.</p>
+  </div>
+
+  <!-- FINAL ORDER -->
+  <div class="card">
+    <img src="Graphic Design/Gordon-ENews-Business-Card-Mockup.jpg" onclick="openImage(this.src)">
+    <h3>Business Card Mockup</h3>
+    <p>A professional business card showcasing clean typography and branding. The design focuses on readability and visual consistency.</p>
+  </div>
+
+  <div class="card">
+    <img src="Graphic Design/Gordon-Podcast-Logo-3000.jpg" onclick="openImage(this.src)">
+    <h3>Podcast Logo</h3>
+    <p>A bold logo created to establish a strong visual identity. It uses color and shape to remain recognizable across platforms.</p>
+  </div>
+
+  <div class="card">
+    <img src="Graphic Design/Gordon-Movie-Poster-Mockup.jpg" onclick="openImage(this.src)">
+    <h3>Movie Poster</h3>
+    <p>A cinematic poster designed to communicate mood and narrative instantly. Typography and imagery work together to create impact.</p>
+  </div>
+
+  <div class="card">
+    <img src="Graphic Design/Long-Beach-poster.jpg" onclick="openImage(this.src)">
+    <h3>Long Beach Poster</h3>
+    <p>A vibrant travel-inspired poster highlighting atmosphere and location. The composition emphasizes color and scenic appeal.</p>
+  </div>
+
+  <div class="card">
+    <img src="Graphic Design/Madison-Gordon-Bookcover-Project_p1(pdfgear.com).jpg" onclick="openImage(this.src)">
+    <h3>Book Cover Design</h3>
+    <p>A visually engaging cover designed to capture attention on first glance. It blends imagery and typography to convey the theme.</p>
+  </div>
+
+  <div class="card">
+    <img src="Graphic Design/Gordon-Nurse-Event-Flyer.jpg" onclick="openImage(this.src)">
+    <h3>Nurse Event Flyer</h3>
+    <p>An informational flyer designed with clear hierarchy and structure. It ensures readability while maintaining a polished visual style.</p>
+  </div>
+
+</div>
+
+<!-- IMAGE LIGHTBOX -->
+<div id="imageModal" class="image-modal" onclick="closeImage()">
+  <img id="modalImg">
+</div>
+
+<script>
+function openImage(src) {
+  document.getElementById("modalImg").src = src;
+  document.getElementById("imageModal").style.display = "flex";
+}
+
+function closeImage() {
+  document.getElementById("imageModal").style.display = "none";
+}
+</script>
+
+</body>
+</html>

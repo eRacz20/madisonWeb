@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Photography</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="nav">
+  <a href="index.html" class="logo">Madison Gordon</a>
+  <div>
+    <a href="index.html">Home</a>
+    <a href="design.html">Graphic Design</a>
+    <a href="photography.html">Photography</a>
+    <a href="video.html">Video</a>
+  </div>
+</header>
+
+<h2 class="title">Photography</h2>
+
+<div class="grid">
+
+  <!-- DOGS -->
+  <img src="Photography/IMG_0325.jpg" onclick="openImage(this.src)">
+  <img src="Photography/IMG_0855.jpg" onclick="openImage(this.src)">
+  <img src="Photography/IMG_0920.jpg" onclick="openImage(this.src)">
+
+  <!-- CATS -->
+  <img src="Photography/Brian.jpg" onclick="openImage(this.src)">
+  <img src="Photography/IMG_0060.jpg" onclick="openImage(this.src)">
+  <img src="Photography/IMG_0100.jpg" onclick="openImage(this.src)">
+  <img src="Photography/MGordonChoice2.jpg" onclick="openImage(this.src)">
+  <img src="Photography/MGordonPet.jpg" onclick="openImage(this.src)">
+
+  <!-- FLOWERS -->
+  <img src="Photography/purpleFlower.jpg" onclick="openImage(this.src)">
+  <img src="Photography/GordonMIOW10.jpg" onclick="openImage(this.src)">
+  <img src="Photography/MGordonFoliage.jpg" onclick="openImage(this.src)">
+
+  <!-- SELF PORTRAIT -->
+  <img src="Photography/SelfPortrait.png" onclick="openImage(this.src)">
+
+</div>
+
+<!-- LIGHTBOX -->
+<div id="imageModal" class="image-modal" onclick="closeImage()">
+  <img id="modalImg">
+</div>
+
+<script>
+function openImage(src) {
+  document.getElementById("modalImg").src = src;
+  document.getElementById("imageModal").style.display = "flex";
+}
+
+function closeImage() {
+  document.getElementById("imageModal").style.display = "none";
+}
+</script>
+
+</body>
+</html>
