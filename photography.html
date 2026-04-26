@@ -20,28 +20,20 @@
 
 <h2 class="title">Photography</h2>
 
-<div class="grid">
+<div class="grid" id="photoGrid">
 
-  <!-- DOGS -->
-  <img src="Photography/IMG_0325.jpg" onclick="openImage(this.src)">
-  <img src="Photography/IMG_0855.jpg" onclick="openImage(this.src)">
-  <img src="Photography/IMG_0920.jpg" onclick="openImage(this.src)">
+  <!-- LOAD FIRST (FAST) -->
+  <img src="Photography/IMG_0325.jpg" loading="lazy" onclick="openImage(this.src)">
+  <img src="Photography/IMG_0855.jpg" loading="lazy" onclick="openImage(this.src)">
+  <img src="Photography/IMG_0920.jpg" loading="lazy" onclick="openImage(this.src)">
 
-  <!-- CATS -->
-  <img src="Photography/Brian.jpg" onclick="openImage(this.src)">
-  <img src="Photography/IMG_0060.jpg" onclick="openImage(this.src)">
-  <img src="Photography/IMG_0100.jpg" onclick="openImage(this.src)">
-  <img src="Photography/MGordonChoice2.jpg" onclick="openImage(this.src)">
-  <img src="Photography/MGordonPet.jpg" onclick="openImage(this.src)">
+</div>
 
-  <!-- FLOWERS -->
-  <img src="Photography/purpleFlower.jpg" onclick="openImage(this.src)">
-  <img src="Photography/GordonMIOW10.jpg" onclick="openImage(this.src)">
-  <img src="Photography/MGordonFoliage.jpg" onclick="openImage(this.src)">
-
-  <!-- SELF PORTRAIT -->
-  <img src="Photography/SelfPortrait.png" onclick="openImage(this.src)">
-
+<!-- LOAD MORE BUTTON -->
+<div style="text-align:center; margin-bottom:40px;">
+  <button onclick="loadMore()" style="padding:12px 25px; border:none; border-radius:20px; background:#D8A9AD; color:white; font-weight:600; cursor:pointer;">
+    Load More
+  </button>
 </div>
 
 <!-- LIGHTBOX -->
@@ -57,6 +49,33 @@ function openImage(src) {
 
 function closeImage() {
   document.getElementById("imageModal").style.display = "none";
+}
+
+function loadMore() {
+  const grid = document.getElementById("photoGrid");
+
+  const images = [
+    "Photography/Brian.jpg",
+    "Photography/IMG_0060.jpg",
+    "Photography/IMG_0100.jpg",
+    "Photography/MGordonChoice2.jpg",
+    "Photography/MGordonPet.jpg",
+    "Photography/purpleFlower.jpg",
+    "Photography/GordonMIOW10.jpg",
+    "Photography/MGordonFoliage.jpg",
+    "Photography/SelfPortrait.png"
+  ];
+
+  images.forEach(src => {
+    const img = document.createElement("img");
+    img.src = src;
+    img.loading = "lazy";
+    img.onclick = () => openImage(src);
+    grid.appendChild(img);
+  });
+
+  // remove button after loading
+  event.target.remove();
 }
 </script>
 
