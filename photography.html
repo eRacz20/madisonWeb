@@ -22,21 +22,29 @@
 
 <div class="grid" id="photoGrid">
 
-  <!-- LOAD FIRST (FAST) -->
-  <img src="Photography/IMG_0325.jpg" loading="lazy" onclick="openImage(this.src)">
-  <img src="Photography/IMG_0855.jpg" loading="lazy" onclick="openImage(this.src)">
-  <img src="Photography/IMG_0920.jpg" loading="lazy" onclick="openImage(this.src)">
+  <picture onclick="openImage('Photography/IMG_0325.webp')">
+    <source srcset="Photography/IMG_0325.webp" type="image/webp">
+    <img src="Photography/IMG_0325.jpg" loading="lazy">
+  </picture>
+
+  <picture onclick="openImage('Photography/IMG_0855.webp')">
+    <source srcset="Photography/IMG_0855.webp" type="image/webp">
+    <img src="Photography/IMG_0855.jpg" loading="lazy">
+  </picture>
+
+  <picture onclick="openImage('Photography/IMG_0920.webp')">
+    <source srcset="Photography/IMG_0920.webp" type="image/webp">
+    <img src="Photography/IMG_0920.jpg" loading="lazy">
+  </picture>
 
 </div>
 
-<!-- LOAD MORE BUTTON -->
 <div style="text-align:center; margin-bottom:40px;">
   <button onclick="loadMore()" style="padding:12px 25px; border:none; border-radius:20px; background:#D8A9AD; color:white; font-weight:600; cursor:pointer;">
     Load More
   </button>
 </div>
 
-<!-- LIGHTBOX -->
 <div id="imageModal" class="image-modal" onclick="closeImage()">
   <img id="modalImg">
 </div>
@@ -55,26 +63,29 @@ function loadMore() {
   const grid = document.getElementById("photoGrid");
 
   const images = [
-    "Photography/Brian.jpg",
-    "Photography/IMG_0060.jpg",
-    "Photography/IMG_0100.jpg",
-    "Photography/MGordonChoice2.jpg",
-    "Photography/MGordonPet.jpg",
-    "Photography/purpleFlower.jpg",
-    "Photography/GordonMIOW10.jpg",
-    "Photography/MGordonFoliage.jpg",
-    "Photography/SelfPortrait.png"
+    "Photography/Brian",
+    "Photography/IMG_0060",
+    "Photography/IMG_0100",
+    "Photography/MGordonChoice2",
+    "Photography/MGordonPet",
+    "Photography/purpleFlower",
+    "Photography/GordonMIOW10",
+    "Photography/MGordonFoliage",
+    "Photography/SelfPortrait"
   ];
 
   images.forEach(src => {
-    const img = document.createElement("img");
-    img.src = src;
-    img.loading = "lazy";
-    img.onclick = () => openImage(src);
-    grid.appendChild(img);
+    const pic = document.createElement("picture");
+
+    pic.innerHTML = `
+      <source srcset="${src}.webp" type="image/webp">
+      <img src="${src}.jpg" loading="lazy">
+    `;
+
+    pic.onclick = () => openImage(`${src}.webp`);
+    grid.appendChild(pic);
   });
 
-  // remove button after loading
   event.target.remove();
 }
 </script>
