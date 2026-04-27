@@ -359,3 +359,99 @@ body {
     font-size: 40px;
   }
 }
+
+
+/* ===== MOBILE OPTIMIZATION ===== */
+@media (max-width: 768px) {
+
+  /* NAVBAR */
+  .nav {
+    flex-direction: column;
+    align-items: center;
+    padding: 15px 20px;
+  }
+
+  .nav div {
+    margin-top: 10px;
+  }
+
+  .nav div a {
+    margin: 5px;
+    padding: 8px 14px;
+    font-size: 14px;
+  }
+
+  /* TITLE */
+  .title {
+    font-size: 26px;
+    margin-top: 30px;
+  }
+
+  /* GRID */
+  .grid {
+    grid-template-columns: 1fr; /* single column */
+    padding: 20px;
+    gap: 25px;
+  }
+
+  /* CARD TEXT */
+  .card-text {
+    padding: 10px 5px;
+  }
+
+  .card-text h3 {
+    font-size: 18px;
+  }
+
+  .card-text p {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  /* IMAGE SIZE */
+  .card picture {
+    aspect-ratio: 4 / 3;
+  }
+
+  /* VIDEO */
+  .video-grid {
+    grid-template-columns: 1fr;
+    padding: 15px;
+  }
+
+  .video-card iframe {
+    aspect-ratio: 16 / 9;
+  }
+
+  /* BUTTON */
+  .load-more-btn {
+    width: 100%;
+    max-width: 250px;
+    font-size: 14px;
+  }
+
+  /* HERO (if used) */
+  .hero {
+    padding: 100px 20px;
+  }
+
+  .hero h2 {
+    font-size: 36px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  /* ABOUT SECTION */
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 25px;
+  }
+
+  .about-image img {
+    width: 200px;
+  }
+
+}
