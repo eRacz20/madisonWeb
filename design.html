@@ -20,10 +20,9 @@
 
 <h2 class="title">Graphic Design</h2>
 
-<div class="grid">
+<div class="grid" id="designGrid">
 
-  <!-- ALL IMAGES -->
-
+  <!-- FIRST 6 -->
   <div class="card">
     <picture onclick="openImage('Graphic Design/Gordon-Media-Mashup-Program-Mockup.webp')">
       <source srcset="Graphic Design/Gordon-Media-Mashup-Program-Mockup.webp" type="image/webp">
@@ -72,56 +71,16 @@
     <h3>Furniture Meta Ad</h3>
   </div>
 
-  <div class="card">
-    <picture onclick="openImage('Graphic Design/Phone-Hand-Meta-Ad-2024.webp')">
-      <source srcset="Graphic Design/Phone-Hand-Meta-Ad-2024.webp" type="image/webp">
-      <img src="Graphic Design/Phone-Hand-Meta-Ad-2024.jpg" loading="lazy">
-    </picture>
-    <h3>Mobile Meta Ad</h3>
-  </div>
-
-  <div class="card">
-    <picture onclick="openImage('Graphic Design/Gordon-ENews-Business-Card-Mockup.webp')">
-      <source srcset="Graphic Design/Gordon-ENews-Business-Card-Mockup.webp" type="image/webp">
-      <img src="Graphic Design/Gordon-ENews-Business-Card-Mockup.jpg" loading="lazy">
-    </picture>
-    <h3>Business Card</h3>
-  </div>
-
-  <div class="card">
-    <picture onclick="openImage('Graphic Design/Gordon-Movie-Poster-Mockup.webp')">
-      <source srcset="Graphic Design/Gordon-Movie-Poster-Mockup.webp" type="image/webp">
-      <img src="Graphic Design/Gordon-Movie-Poster-Mockup.jpg" loading="lazy">
-    </picture>
-    <h3>Movie Poster</h3>
-  </div>
-
-  <div class="card">
-    <picture onclick="openImage('Graphic Design/Long-Beach-poster.webp')">
-      <source srcset="Graphic Design/Long-Beach-poster.webp" type="image/webp">
-      <img src="Graphic Design/Long-Beach-poster.jpg" loading="lazy">
-    </picture>
-    <h3>Long Beach Poster</h3>
-  </div>
-
-  <div class="card">
-    <picture onclick="openImage('Graphic Design/Madison-Gordon-Bookcover-Project_p1(pdfgear.com).webp')">
-      <source srcset="Graphic Design/Madison-Gordon-Bookcover-Project_p1(pdfgear.com).webp" type="image/webp">
-      <img src="Graphic Design/Madison-Gordon-Bookcover-Project_p1(pdfgear.com).jpg" loading="lazy">
-    </picture>
-    <h3>Book Cover</h3>
-  </div>
-
-  <div class="card">
-    <picture onclick="openImage('Graphic Design/Gordon-Nurse-Event-Flyer.webp')">
-      <source srcset="Graphic Design/Gordon-Nurse-Event-Flyer.webp" type="image/webp">
-      <img src="Graphic Design/Gordon-Nurse-Event-Flyer.jpg" loading="lazy">
-    </picture>
-    <h3>Nurse Flyer</h3>
-  </div>
-
 </div>
 
+<!-- BUTTON -->
+<div style="text-align:center; margin-bottom:40px;">
+  <button class="load-more-btn" onclick="loadMoreDesign(event)">
+    Load More
+  </button>
+</div>
+
+<!-- MODAL -->
 <div id="imageModal" class="image-modal" onclick="closeImage()">
   <img id="modalImg">
 </div>
@@ -134,6 +93,50 @@ function openImage(src) {
 
 function closeImage() {
   document.getElementById("imageModal").style.display = "none";
+}
+
+const designItems = [
+  {img: "Phone-Hand-Meta-Ad-2024", title: "Mobile Meta Ad"},
+  {img: "Gordon-ENews-Business-Card-Mockup", title: "Business Card"},
+  {img: "Gordon-Movie-Poster-Mockup", title: "Movie Poster"},
+  {img: "Long-Beach-poster", title: "Long Beach Poster"},
+  {img: "Madison-Gordon-Bookcover-Project_p1(pdfgear.com)", title: "Book Cover"},
+  {img: "Gordon-Nurse-Event-Flyer", title: "Nurse Flyer"},
+
+  /* NEW IMAGES FIXED */
+  {img: "StationeryMockup", title: "Stationery Mockup"},
+  {img: "PodcastLogoWork", title: "Podcast Logo"},
+  {img: "MagazineAD", title: "Magazine Ad"}
+];
+
+let currentIndex = 0;
+
+function loadMoreDesign(event) {
+  const grid = document.getElementById("designGrid");
+
+  for (let i = 0; i < 6; i++) {
+    if (currentIndex >= designItems.length) break;
+
+    const item = designItems[currentIndex];
+
+    const div = document.createElement("div");
+    div.className = "card";
+
+    div.innerHTML = `
+      <picture onclick="openImage('Graphic Design/${item.img}.webp')">
+        <source srcset="Graphic Design/${item.img}.webp" type="image/webp">
+        <img src="Graphic Design/${item.img}.webp" loading="lazy">
+      </picture>
+      <h3>${item.title}</h3>
+    `;
+
+    grid.appendChild(div);
+    currentIndex++;
+  }
+
+  if (currentIndex >= designItems.length) {
+    event.target.remove();
+  }
 }
 </script>
 

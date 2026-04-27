@@ -22,29 +22,59 @@
 
 <div class="grid" id="photoGrid">
 
-  <picture onclick="openImage('Photography/IMG_0325.webp')">
-    <source srcset="Photography/IMG_0325.webp" type="image/webp">
-    <img src="Photography/IMG_0325.jpg" loading="lazy">
-  </picture>
+  <!-- FIRST 6 -->
+  <div class="card">
+    <picture onclick="openImage('Photography/IMG_0325.webp')">
+      <source srcset="Photography/IMG_0325.webp" type="image/webp">
+      <img src="Photography/IMG_0325.jpg" loading="lazy">
+    </picture>
+  </div>
 
-  <picture onclick="openImage('Photography/IMG_0855.webp')">
-    <source srcset="Photography/IMG_0855.webp" type="image/webp">
-    <img src="Photography/IMG_0855.jpg" loading="lazy">
-  </picture>
+  <div class="card">
+    <picture onclick="openImage('Photography/IMG_0855.webp')">
+      <source srcset="Photography/IMG_0855.webp" type="image/webp">
+      <img src="Photography/IMG_0855.jpg" loading="lazy">
+    </picture>
+  </div>
 
-  <picture onclick="openImage('Photography/IMG_0920.webp')">
-    <source srcset="Photography/IMG_0920.webp" type="image/webp">
-    <img src="Photography/IMG_0920.jpg" loading="lazy">
-  </picture>
+  <div class="card">
+    <picture onclick="openImage('Photography/IMG_0920.webp')">
+      <source srcset="Photography/IMG_0920.webp" type="image/webp">
+      <img src="Photography/IMG_0920.jpg" loading="lazy">
+    </picture>
+  </div>
+
+  <div class="card">
+    <picture onclick="openImage('Photography/Brian.webp')">
+      <source srcset="Photography/Brian.webp" type="image/webp">
+      <img src="Photography/Brian.jpg" loading="lazy">
+    </picture>
+  </div>
+
+  <div class="card">
+    <picture onclick="openImage('Photography/IMG_0060.webp')">
+      <source srcset="Photography/IMG_0060.webp" type="image/webp">
+      <img src="Photography/IMG_0060.jpg" loading="lazy">
+    </picture>
+  </div>
+
+  <div class="card">
+    <picture onclick="openImage('Photography/IMG_0100.webp')">
+      <source srcset="Photography/IMG_0100.webp" type="image/webp">
+      <img src="Photography/IMG_0100.jpg" loading="lazy">
+    </picture>
+  </div>
 
 </div>
 
+<!-- BUTTON -->
 <div style="text-align:center; margin-bottom:40px;">
-  <button onclick="loadMore()" style="padding:12px 25px; border:none; border-radius:20px; background:#D8A9AD; color:white; font-weight:600; cursor:pointer;">
+  <button class="load-more-btn" onclick="loadMorePhotos(event)">
     Load More
   </button>
 </div>
 
+<!-- MODAL -->
 <div id="imageModal" class="image-modal" onclick="closeImage()">
   <img id="modalImg">
 </div>
@@ -59,34 +89,42 @@ function closeImage() {
   document.getElementById("imageModal").style.display = "none";
 }
 
-function loadMore() {
+const photoItems = [
+  "Photography/MGordonChoice2",
+  "Photography/MGordonPet",
+  "Photography/purpleFlower",
+  "Photography/GordonMIOW10",
+  "Photography/MGordonFoliage",
+  "Photography/SelfPortrait"
+];
+
+let photoIndex = 0;
+
+function loadMorePhotos(event) {
   const grid = document.getElementById("photoGrid");
 
-  const images = [
-    "Photography/Brian",
-    "Photography/IMG_0060",
-    "Photography/IMG_0100",
-    "Photography/MGordonChoice2",
-    "Photography/MGordonPet",
-    "Photography/purpleFlower",
-    "Photography/GordonMIOW10",
-    "Photography/MGordonFoliage",
-    "Photography/SelfPortrait"
-  ];
+  for (let i = 0; i < 6; i++) {
+    if (photoIndex >= photoItems.length) break;
 
-  images.forEach(src => {
-    const pic = document.createElement("picture");
+    const src = photoItems[photoIndex];
 
-    pic.innerHTML = `
-      <source srcset="${src}.webp" type="image/webp">
-      <img src="${src}.jpg" loading="lazy">
+    const div = document.createElement("div");
+    div.className = "card";
+
+    div.innerHTML = `
+      <picture onclick="openImage('${src}.webp')">
+        <source srcset="${src}.webp" type="image/webp">
+        <img src="${src}.jpg" loading="lazy">
+      </picture>
     `;
 
-    pic.onclick = () => openImage(`${src}.webp`);
-    grid.appendChild(pic);
-  });
+    grid.appendChild(div);
+    photoIndex++;
+  }
 
-  event.target.remove();
+  if (photoIndex >= photoItems.length) {
+    event.target.remove();
+  }
 }
 </script>
 
