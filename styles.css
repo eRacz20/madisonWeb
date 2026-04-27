@@ -223,14 +223,21 @@ body {
 }
 
 /* ===== IMAGE ONLY (FIXED) ===== */
-.grid img {
+/* ===== IMAGE UNIFORM SIZE FIX ===== */
+.card picture {
+  display: block;
   width: 100%;
-  height: 340px;
-  object-fit: cover;
+  aspect-ratio: 4 / 3; /* 🔥 makes ALL images same box */
+  overflow: hidden;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 🔥 clean cropping */
   border-radius: 14px;
   transition: all 0.3s ease;
 }
-
 .grid img:hover {
   transform: scale(1.05);
   box-shadow: 0 15px 40px rgba(0,0,0,0.2);
@@ -347,9 +354,6 @@ body {
     padding: 30px;
   }
 
-  .grid img {
-    height: 260px;
-  }
 
   .hero h2 {
     font-size: 40px;
